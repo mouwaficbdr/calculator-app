@@ -17,7 +17,7 @@ const keys = [
   { placeholder: '-', value: '-', id: 'subtract' },
   { placeholder: '×', value: '*', id: 'multiply' },
   { placeholder: '/', value: '/', id: 'divide' },
-  { placeholder: '=', value: '=', id: 'equal' },
+  { placeholder: '=', value: '=', id: 'equals' },
   { placeholder: 'AC', value: '', id: 'clear' }
 ];
 
@@ -26,7 +26,10 @@ const keys = [
 export default function App() {
   return (
     <div className="calculator">
-      <div className="screen"></div>
+      <div className="screen">
+        <div id="inputs">dodnifdo</div>
+        <div id="display">idobfiod</div>
+      </div>
       <div className="keys-container">
         {
           keys.map((key) => (
