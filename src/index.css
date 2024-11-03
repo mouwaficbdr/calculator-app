@@ -1,0 +1,40 @@
+html{
+  font-size: 62.5%;
+}
+
+body{
+  font-size: 1.6em;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator{
+  width: 350px;
+  height: 400px;
+  background-color: #000000;
+  box-sizing: border-box;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen{
+  height: 70px;
+  width: 100%;
+  background-color: blue;
+}
+
+.keys-container{
+  flex: 1;
+  background-color: gray;
+  width: 100%;
+}
+
+.key{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
