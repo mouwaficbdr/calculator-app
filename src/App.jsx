@@ -18,7 +18,7 @@ const keys = [
   { placeholder: '×', value: '*', id: 'multiply' },
   { placeholder: '÷', value: '/', id: 'divide' },
   { placeholder: '=', value: '=', id: 'equal' },
-  { placeholder: 'C', value: 'C', id: 'clear' }
+  { placeholder: 'AC', value: '', id: 'clear' }
 ];
 
 
@@ -29,9 +29,9 @@ export default function App() {
       <div className="screen"></div>
       <div className="keys-container">
         {
-          keys.map((key) => {
-            <button className='key' id={key.id} key={key.id} value={key.value}>{key.placeholder}</button>
-          })
+          keys.map((key) => (
+            <button className={`key ${key.id}`} id={key.id} key={key.id} value={key.value}>{key.placeholder}</button>
+          ))
         }
       </div>
     </div>
