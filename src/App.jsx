@@ -24,16 +24,66 @@ const keys = [
 
 
 export default function App() {
+
+  const [inputs, setInputs] = useState("")
+  const [display, setDisplay] = useState("")
+
+  function deleteEntries() {
+    setInputs("")
+    setDisplay("")
+  }
+
+  function handleKeyPress(event) {
+    setInputs((inputs) => {
+      const newValue = event.target.value;
+      return inputs + newValue;
+    });
+
+    setDisplay((display) => {
+      const lastChar = inputs === '' ? '' : inputs.charAt(inputs.length - 1);
+      const operators = ["*", "+", "-", "/"]
+      if (
+        !operators.includes(lastChar) && !operators.includes(event.target.value)
+      ) {
+        return display + event.target.value;
+      } else {
+        return event.target.value;
+      }
+    });
+  }
+
+
+  function displayResult() {
+    //TODO Traiter le string qui se trouve dans le input comme un calcul réel et définir setDisplay sur le résultat du calcul
+    setDisplay(inputs)
+
+  }
+
   return (
     <div className="calculator">
       <div className="screen">
-        <div id="inputs">dodnifdo</div>
-        <div id="display">idobfiod</div>
+        <div id="inputs">{inputs}</div>
+        <div id="display">{display}</div>
       </div>
       <div className="keys-container">
         {
           keys.map((key) => (
-            <button className="key" id={key.id} key={key.id} value={key.value}>{key.placeholder}</button>
+            <button
+              className="key"
+              id={key.id}
+              key={key.id}
+              value={key.value}
+              onClick={
+                () => {
+                  if (key.value === "=")
+                    return displayResult()
+                  else if (key.value === "")
+                    return deleteEntries()
+                  else
+                    return handleKeyPress(event)
+                }}>
+              {key.placeholder}
+            </button>
           ))
         }
       </div>
